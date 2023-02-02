@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Sing from './Sing';
+import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';
 const Login = () => {
     const [Error,setError] = useState({
@@ -51,7 +52,7 @@ if(!regEmail.test(inpval.email)){
     if(userlogin.length ===0){
       alert("invalid details")
     }else{
-      alert("user login succesfully");
+      swal("Successfull Login", "You clicked the button!", "success");
       localStorage.setItem("user_login",JSON.stringify(userlogin))
       Navigate("/dashboard");
     }

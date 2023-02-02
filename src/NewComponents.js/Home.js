@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Sing from './Sing';
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
 const Home = () => {
     const [Error,setError] = useState({
         name:false,
@@ -48,7 +49,8 @@ if(!regName.test(inpval.name)){
 }else if(!passReg.test(inpval.password)){
     setError({...Error,password:true})
 }else{
-    alert("now you are officially a developer...")
+    // alert("now you are officially a developer...")
+    swal("Successfull Register", "You clicked the button!", "success");
 
     localStorage.setItem("userTekisky",JSON.stringify([...data,inpval]));
     Registration("/login");
